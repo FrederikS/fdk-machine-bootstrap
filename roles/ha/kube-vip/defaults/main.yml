@@ -6,7 +6,7 @@
 # More options can be found in ../templates//kube-vip-arp-ds.yaml.j2
 
 # These are commonly changed values for kube-vip.
-kube_vip_version: 'v0.4.0'
+kube_vip_version: 'v0.4.2'
 kube_vip_interface: "{{ ansible_default_ipv4.interface }}"
 
 # These are less commonly changed values for kube-vip.
@@ -22,3 +22,7 @@ kube_vip_serviceaccount_name: 'kube-vip'
 kube_vip_clusterrole_name: 'kube-vip-role'
 kube_vip_clusterrolebinding_name: 'kube-vip-binding'
 
+kube_vip_controller_serviceaccount_name: 'kube-vip-cloud-controller'
+kube_vip_controller_clusterrole_name: 'kube-vip-cloud-controller-role'
+kube_vip_controller_clusterrolebinding_name: 'kube-vip-cloud-controller-binding'
+kube_vip_controller_statefulset_name: 'kube-vip-cloud-provider'

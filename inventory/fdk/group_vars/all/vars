@@ -13,8 +13,9 @@ install_k3s_channel: "latest"
 install_k3s_server_args: "--disable traefik --disable servicelb"
 
 ha_enabled: true
-ha_cluster_vip: 192.168.2.99
+ha_cluster_vip: 192.168.2.200
 ha_cluster_method: kube-vip
+kube_vip_lb_ip_range: 192.168.2.201-192.168.2.210
 ha_k3s_token: "{{ vault_ha_k3s_token }}"
 ghcr_username: "{{ vault_ghcr_username }}"
 ghcr_password: "{{ vault_ghcr_password }}"

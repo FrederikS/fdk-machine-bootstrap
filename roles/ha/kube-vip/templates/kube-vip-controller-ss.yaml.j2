@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ kube_vip_controller_statefulset_name }}
+  namespace: {{ kube_vip_namespace }}
+spec:
+  serviceName: kube-vip-cloud-provider
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: {{ kube_vip_container_name }}
+      component: kube-vip-cloud-provider
+  template:
+    metadata:
+      labels:
+        app: {{ kube_vip_container_name }}
+        component: kube-vip-cloud-provider
+    spec:
+      containers:
+      - command:
+        - /kube-vip-cloud-provider
+        - --leader-elect-resource-name={{ kube_vip_controller_serviceaccount_name }}
+        image: ghcr.io/kube-vip/kube-vip-cloud-provider:v0.0.2
+        name: kube-vip-cloud-provider
+        imagePullPolicy: Always
+        resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: {{ kube_vip_controller_serviceaccount_name }}

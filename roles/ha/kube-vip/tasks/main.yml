@@ -48,6 +48,30 @@
     group: root
     mode: "u=rw,g=,o="
 
+- name: Copy controller config
+  template:
+    src: "kube-vip-cm.yaml.j2"
+    dest: "{{ manifest_dir.path }}/kube-vip-cm.yaml"
+    owner: root
+    group: root
+    mode: "u=rw,g=,o="
+
+- name: Copy controller RBAC manifest
+  template:
+    src: "kube-vip-controller-rbac.yaml.j2"
+    dest: "{{ manifest_dir.path }}/kube-vip-controller-rbac.yaml"
+    owner: root
+    group: root
+    mode: "u=rw,g=,o="
+
+- name: Copy cloud controller statefulset manifest
+  template:
+    src: "kube-vip-controller-ss.yaml.j2"
+    dest: "{{ manifest_dir.path }}/kube-vip-controller-ss.yaml"
+    owner: root
+    group: root
+    mode: "u=rw,g=,o="
+
 - name: Apply kube-vip manifests
   command: "{{ bin_dir }}/k3s kubectl apply -f {{ manifest_dir.path }}"
   run_once: true
