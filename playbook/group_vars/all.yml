@@ -14,6 +14,7 @@ extra_agent_args: "{{ install_k3s_agent_args | default('') }}"
 systemd_dir: "{{ install_k3s_systemd_dir | default('/etc/systemd/system') }}"
 bin_dir: "{{ install_k3s_bin_dir | default('/usr/local/bin') }}"
 data_dir: "{{ install_k3s_data_dir | default('/var/lib/rancher/k3s') }}"
+k3s_config_dir: "{{ install_k3s_config_dir | default('/etc/rancher/k3s') }}"
 
 first_server: "{{ hostvars[groups['k3s_server'][0]]['ansible_host'] | default(groups['k3s_server'][0]) }}"
 apiserver_endpoint: "{{ (ha_cluster_vip | mandatory) if (ha_enabled | default(false)) else first_server }}"
