@@ -1,5 +1,4 @@
 ---
-
 ################################################################################
 # Configure k3s registries
 #
@@ -46,7 +45,7 @@
   systemd:
     name: k3s
     daemon_reload: "{{ 'yes' if k3s_service.changed else 'no' }}"
-    state:  "{{ 'restarted' if k3s_service.changed else 'started' }}"
+    state: "{{ 'restarted' if k3s_service.changed else 'started' }}"
     enabled: yes
 
 ################################################################################
@@ -84,7 +83,9 @@
 
 - name: Determine k3s bin target
   set_fact:
-    k3s_bin_target: "{{ '{{ bin_dir }}/k3s.sh' if data_dir != '/var/lib/rancher/k3s' else '{{ bin_dir }}/k3s' | default('{{ bin_dir }}/k3s') }}"
+    k3s_bin_target:
+      "{{ '{{ bin_dir }}/k3s.sh' if data_dir != '/var/lib/rancher/k3s' else '{{ bin_dir }}/k3s' | default('{{ bin_dir
+      }}/k3s') }}"
 
 - name: Create symlink'd commands (kubectl, crictl, ctr)
   file:
@@ -143,4 +144,3 @@
   when:
     - ha_enabled
     - k3s_cluster_method != 'external'
-

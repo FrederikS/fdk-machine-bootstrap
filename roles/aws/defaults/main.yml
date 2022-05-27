@@ -1,3 +1,4 @@
+---
 aws_region: eu-central-1
 awscli_config_directory: ~/.aws
 awscli_output: json

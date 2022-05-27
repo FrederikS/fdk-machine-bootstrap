@@ -1,0 +1,7 @@
+{
+  "ansible.ansibleLint.enabled": false,
+  "files.associations": {
+    "*.yml": "ansible"
+  },
+  "prettier.printWidth": 120
+}

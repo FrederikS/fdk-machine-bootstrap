@@ -7,3 +7,7 @@ rules:
     level: warning
   truthy:
     allowed-values: ['true', 'false', 'yes', 'no']
+  empty-lines:
+    max: 2
+    max-start: 0
+    max-end: 1

@@ -34,14 +34,14 @@
 - name: Determine Github URLs
   set_fact:
     binary_url: "{{ github_url }}/download/{{ k3s_version }}/k3s{{ k3s_suffix }}"
-    hash_url:   "{{ github_url }}/download/{{ k3s_version }}/sha256sum-{{ k3s_arch }}.txt"
+    hash_url: "{{ github_url }}/download/{{ k3s_version }}/sha256sum-{{ k3s_arch }}.txt"
   when: k3s_commit == 'undefined'
   check_mode: no
 
 - name: Determine Storage URLs
   set_fact:
     binary_url: "{{ storage_url }}/k3s{{ k3s_suffix }}-{{ k3s_commit }}"
-    hash_url:   "{{ storage_url }}/k3s{{ k3s_suffix }}-{{ k3s_commit }}.sha256sum"
+    hash_url: "{{ storage_url }}/k3s{{ k3s_suffix }}-{{ k3s_commit }}.sha256sum"
   when: k3s_commit != 'undefined'
   check_mode: no
 
@@ -56,7 +56,7 @@
         var: hash_url
   when: report_download_urls
   check_mode: no
- 
+
 # Download binaries
 - name: Download k3s binary
   get_url:
