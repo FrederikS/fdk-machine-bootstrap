@@ -1,0 +1,4 @@
+---
+rsyslog_config_path: "{{ rsyslog_config | default('/etc/rsyslog.conf') }}"
+aws_public_domain: "{{ (aws_domain | mandatory) }}"
+aws_hosted_zone_id: "{{ (aws_zone_id | mandatory) }}"

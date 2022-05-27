@@ -15,6 +15,9 @@ systemd_dir: "{{ install_k3s_systemd_dir | default('/etc/systemd/system') }}"
 bin_dir: "{{ install_k3s_bin_dir | default('/usr/local/bin') }}"
 data_dir: "{{ install_k3s_data_dir | default('/var/lib/rancher/k3s') }}"
 k3s_config_dir: "{{ install_k3s_config_dir | default('/etc/rancher/k3s') }}"
+system_log_dir: "{{ install_system_log_dir | default('/var/log') }}"
+system_bin_dir: "{{ install_system_bin_dir | default('/usr/bin') }}"
+local_bin_dir: "{{ install_local_bin_dir | default('/usr/local/bin') }}"
 
 first_server: "{{ hostvars[groups['k3s_server'][0]]['ansible_host'] | default(groups['k3s_server'][0]) }}"
 apiserver_endpoint: "{{ (ha_cluster_vip | mandatory) if (ha_enabled | default(false)) else first_server }}"
@@ -38,4 +41,3 @@ k3s_cluster_methods:
   - external
   - kube-vip
   - keepalived
-

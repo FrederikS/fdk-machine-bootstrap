@@ -17,6 +17,7 @@
   become: true
   roles:
     - role: k3s/server
+    - role: aws
 
 - name: Fetch cluster config and wait for control-plane before setting up agents
   hosts: 127.0.0.1
