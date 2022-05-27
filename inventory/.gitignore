@@ -1,6 +1,4 @@
 *
 !.gitignore
-!sample/
-!sample/**
-!turingpi/
-!turingpi/**
+!fdk/
+!fdk/**
