@@ -1,7 +1,4 @@
 ---
-- name: Load secrets
-  include_vars: defaults/secrets.yml
-
 - name: Create awscli config directory
   file:
     path: "{{ awscli_config_directory }}"

@@ -1,4 +1,6 @@
 ---
 rsyslog_config_path: "{{ rsyslog_config | default('/etc/rsyslog.conf') }}"
-aws_public_domain: "{{ (aws_domain | mandatory) }}"
-aws_hosted_zone_id: "{{ (aws_zone_id | mandatory) }}"
+aws_public_domain: "{{ aws_domain | mandatory }}"
+aws_hosted_zone_id: "{{ aws_zone_id | mandatory }}"
+aws_access_key_id: "{{ aws_access_id | mandatory }}"
+aws_secret_access_key: "{{ aws_access_key | mandatory }}"

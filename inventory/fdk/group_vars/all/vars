@@ -9,9 +9,12 @@
 cluster_config: cluster.conf
 
 # Use the latest k3s version instead of 'stable'
-install_k3s_channel: 'latest'
-install_k3s_server_args: '--disable traefik --disable servicelb'
+install_k3s_channel: "latest"
+install_k3s_server_args: "--disable traefik --disable servicelb"
 
 ha_enabled: true
 ha_cluster_vip: 192.168.2.99
 ha_cluster_method: kube-vip
+ha_k3s_token: "{{ vault_ha_k3s_token }}"
+ghcr_username: "{{ vault_ghcr_username }}"
+ghcr_password: "{{ vault_ghcr_password }}"

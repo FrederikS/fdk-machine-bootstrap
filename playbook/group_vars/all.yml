@@ -26,6 +26,8 @@ k3s_cluster_config: "{{ cluster_config | default('cluster.conf') }}"
 k3s_cluster_method: "{{ ha_cluster_method | default('keepalived') }}"
 
 k3s_token: "{{ ha_k3s_token | default('MySuperSecureToken') }}"
+k3s_ghcr_username: "{{ ghcr_username | mandatory }}"
+k3s_ghcr_password: "{{ ghcr_password | mandatory }}"
 
 # Services information
 k3s_services:

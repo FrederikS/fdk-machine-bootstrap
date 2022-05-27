@@ -3,9 +3,6 @@
 ################################################################################
 # Configure k3s registries
 #
-- name: Load secrets
-  ansible.builtin.include_vars: defaults/secrets.yml
-
 - name: Create k3s config directory
   ansible.builtin.file:
     path: "{{ k3s_config_dir }}"
