@@ -55,6 +55,7 @@
     owner: root
     group: root
     mode: "u=rw,g=,o="
+  when: k3s_lb_controller_enabled
 
 - name: Copy controller RBAC manifest
   template:
@@ -63,6 +64,7 @@
     owner: root
     group: root
     mode: "u=rw,g=,o="
+  when: k3s_lb_controller_enabled
 
 - name: Copy cloud controller statefulset manifest
   template:
@@ -71,6 +73,7 @@
     owner: root
     group: root
     mode: "u=rw,g=,o="
+  when: k3s_lb_controller_enabled
 
 - name: Apply kube-vip manifests
   command: "{{ bin_dir }}/k3s kubectl apply -f {{ manifest_dir.path }}"

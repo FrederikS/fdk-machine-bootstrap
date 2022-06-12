@@ -47,7 +47,7 @@ spec:
         - name: vip_ddns
           value: "false"
         - name: svc_enable
-          value: "true"
+          value: "{{ k3s_lb_controller_enabled }}"
         - name: vip_leaderelection
           value: "true"
         - name: vip_leaseduration
