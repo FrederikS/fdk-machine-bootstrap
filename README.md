@@ -95,3 +95,11 @@ A few methods have been implemented to provide and manage this VIP.
 See `inventory/turingpi` for my example HA setup on my Turing Pi v1.
 See `inventory/sample/group_vars/README.md` for more details on variables.
 
+## Update OS
+
+```shell
+// packages
+sudo apt update && sudo apt full-upgrade -y
+// rpi firmware
+sudo rpi-eeprom-update -a
+```

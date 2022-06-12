@@ -15,3 +15,10 @@
     mode: 0644
     state: touch
   changed_when: false
+
+# https://github.com/k3s-io/k3s/issues/4234
+- name: Install linux-modules-extra-raspi
+  ansible.builtin.package:
+    name: linux-modules-extra-raspi
+    state: present
+  notify: reboot
